@@ -1,0 +1,6 @@
+lmsenv
+__pycache__
+.env
+lms/media
+lms/static
+000*

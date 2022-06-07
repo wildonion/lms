@@ -1,0 +1,4210 @@
+{
+	"info": {
+		"_postman_id": "99e769d8-3a0c-4cdb-8e21-d8fdb0149e35",
+		"name": "LMS",
+		"description": "# **LMS Server APIs**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Signup OTP Request",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone_number",
+									"value": "09211686115",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/user/otp-req/signup/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"otp-req",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signup OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone_number",
+									"value": "09124978155",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "ali@123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "ali_mlk",
+									"type": "string"
+								},
+								{
+									"key": "code",
+									"value": "76305",
+									"type": "string"
+								},
+								{
+									"key": "timestamp",
+									"value": "1641386431",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/user/signup/otp/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"signup",
+								"otp",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login OTP Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone_number",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/user/otp-req/forgot-password/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"otp-req",
+								"forgot-password",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQzODEzMjAsImlhdCI6MTY0Mjg0NTMyMH0.XejyBSsdl76rfSmMjU0rYK1wVISMBz-ODJ2Ub2N1YiQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email_or_phone_number",
+									"value": "lmsex@gmail.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "lms@defiment17",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/user/login/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login OTP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone_number",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "code",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "timestamp",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/user/login/otp/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"login",
+								"otp",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Google",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "google_id",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "image_url",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/user/login/google/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"login",
+								"google",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQzNzY1NzcsImlhdCI6MTY0Mjg0MDU3N30._YtSXmPmbQlpA6aJb7S6Un7dZaih2Mh9ZArBiFThBgg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "3",
+									"type": "string"
+								},
+								{
+									"key": "email",
+									"value": "lmsex@gmail.com",
+									"type": "string"
+								},
+								{
+									"key": "phone_number",
+									"value": "09211686115",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "lms",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/user/profile/edit/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"edit",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzIzMTc4MjUsImlhdCI6MTY0MDc4MTgyNX0.CPsXC8Uz3qfs37kIH04VdTVcnH9FNkMTx4TFwH8Szvc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "ali@123",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/user/profile/edit/password/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"edit",
+								"password",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Avatar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzI5MjMwNDEsImlhdCI6MTY0MTM4NzA0MX0.ihnVRrpBaEgnMSO1AB0aAKneTTDPFFZzyrXfEZ08rB0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "string"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/lms/Pictures/ILTQq.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/user/profile/upload/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"upload",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwODk3NTQsImlhdCI6MTY0MzU1Mzc1NH0.xJTY2Ni4-_WW3Km5Xp5jNACGTOr4vaEW9XqSrMCmdqY",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/user/check-token/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"check-token",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQzODEzMjAsImlhdCI6MTY0Mjg0NTMyMH0.XejyBSsdl76rfSmMjU0rYK1wVISMBz-ODJ2Ub2N1YiQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/user/get/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"get",
+								"all",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** can get all users info"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User Group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzY4MDY3ODUsImlhdCI6MTY0NTI3MDc4NX0.tKGAhAp-6GR4Y6BuRYc6THphNzufSEd7hiRU1UrOmKs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "16",
+									"type": "text"
+								},
+								{
+									"key": "user_group",
+									"value": "admin",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/user/profile/edit/group/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"edit",
+								"group",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** can edit a user group"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQzODEzMjAsImlhdCI6MTY0Mjg0NTMyMH0.XejyBSsdl76rfSmMjU0rYK1wVISMBz-ODJ2Ub2N1YiQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "user_status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/user/profile/edit/status/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"edit",
+								"status",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** can edit a user group"
+					},
+					"response": []
+				}
+			],
+			"description": "# **User APIs**\n\n**Models :**\n\n*   OTPModel\n*   GoogleMetaData\n*   OTPMetaData\n*   Profile\n*   ProfileUpdater\n*   Point"
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get All Cats",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/cat/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"cat",
+								"all",
+								""
+							]
+						},
+						"description": "Get all tags"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cat",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzMyNTU4MzAsImlhdCI6MTY0MTcxOTgzMH0.Fzvl-za15gqzF415Ui_4x5M_pE-MP2bRlj-tFUBqxs8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cat",
+									"value": "cryptography",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/cat/create/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"cat",
+								"create",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser***, ***teacher*** *and* ***admin*** can create a tag"
+					},
+					"response": []
+				}
+			],
+			"description": "# **Tag APIs**\n\n**Model :**\n\n*   Tag"
+		},
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "Create Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI5MjM0ODEsImlhdCI6MTY0MTM4NzQ4MX0.VuN8utGJQe13VYGfoBItb2aX3YQL2R_sVQc8d7UMq8Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "really course khoob",
+									"type": "string"
+								},
+								{
+									"key": "short_description",
+									"value": "this is an awesome blockchian tutorial from lms",
+									"type": "string"
+								},
+								{
+									"key": "content",
+									"value": "yes bla bla bla",
+									"type": "string"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/lms/Pictures/eye.jpg"
+								},
+								{
+									"key": "tags",
+									"value": "1",
+									"type": "string"
+								},
+								{
+									"key": "tags",
+									"value": "3",
+									"type": "string"
+								},
+								{
+									"key": "teacher_id",
+									"value": "2",
+									"type": "string"
+								},
+								{
+									"key": "level",
+									"value": "Conceptual",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/create/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"create",
+								""
+							]
+						},
+						"description": "Only user with group ***teacher*** or ***superuser*** can add course\n\n**NOTE :** `tags` is an array of tag IDs"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Course",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/course/آموزش-بلاکچین-توسط-تیم-بیتداد",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"آموزش-بلاکچین-توسط-تیم-بیتداد"
+							]
+						},
+						"description": "Get a course info\n\n**NOTE :** `comments` field returned by the API is all available comments (status = True) for that course\n\n**NOTE :** `tickets` field returned by the API is all closed tickets (is_closed = True) for that course"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzU5Mjc2NjMsImlhdCI6MTY0NDM5MTY2M30.O-WJ4X-xh_pwWhWvOSQzrt05RBPgcb6-Df7YsvSUK8I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"slug\": \"second-course\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lms}}/course/second-course",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"second-course"
+							]
+						},
+						"description": "Only user with group ***teacher*** or ***superuser*** can edit course\n\n**NOTE :** you can edit one of these fields or all of them at once\n\n**NOTE :** This is partial update means you can edit one of these fields or all of them at once; but the `slug` field is required always\n\n**NOTE :** `tags` is an array of tag IDs"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Published Courses",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/course/published/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"published",
+								""
+							]
+						},
+						"description": "Get all published courses"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Courses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwNjg1NjMsImlhdCI6MTY0MzUzMjU2M30.Nd8wsKsZrYIEptvFAQ_p2wNdUavkuW3olHkbkWUFzho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/course/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"all",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** can fetch all courses"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Course Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwNjg1NjMsImlhdCI6MTY0MzUzMjU2M30.Nd8wsKsZrYIEptvFAQ_p2wNdUavkuW3olHkbkWUFzho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "published",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/status/اموزش-سریع-بیت-کوین",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"status",
+								"اموزش-سریع-بیت-کوین"
+							]
+						},
+						"description": "Only user with group ***superuser*** can edit course status"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Teacher Courses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo0LCJleHAiOjE2NzY4MDI0NzksImlhdCI6MTY0NTI2NjQ3OX0.FkfghK4hVCqq-ELCzoDXj5Nj7lT_emW-mbwEqzCtycI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "teacher_id",
+									"value": "4",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/author/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"author",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***teacher*** can get all his/her courses"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ0Njg0MDEsImlhdCI6MTY0MjkzMjQwMX0.593u2j6puWQvVLyC7ryclbePkO2HNpaDX01YX4Wy4dU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "video_name",
+									"value": "blockchain tut first part",
+									"type": "string"
+								},
+								{
+									"key": "clip",
+									"type": "file",
+									"src": "/C:/Users/lms/Desktop/[BTCLOD.COM] Day 22 - Courage  -  MOVE - A 30 Day Yoga Journey-360p.mp4"
+								},
+								{
+									"key": "part",
+									"value": "2",
+									"type": "string"
+								},
+								{
+									"key": "course_id",
+									"value": "2",
+									"type": "string"
+								},
+								{
+									"key": "short_description",
+									"value": "the first clip part of this course",
+									"type": "string"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/lms/Pictures/ILTQq.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/videos/upload/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"videos",
+								"upload",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***teacher*** can add a video for a course"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ0NjU5ODksImlhdCI6MTY0MjkyOTk4OX0.jo9slneTigcATZpFJr5IghPif5ZODufTCKFLbx2Mgrg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/course/videos/6",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"videos",
+								"6"
+							]
+						},
+						"description": "Only user with group ***superuser***, ***teacher*** *and* ***student*** can get a video"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzU2OTA5NjgsImlhdCI6MTY0NDE1NDk2OH0.WRr-TQSyQV-HiAunxAL1ZAaUV7PYwAvU82lPzZdJi7w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "video_name",
+									"value": "edited video for the course blockchain",
+									"type": "string",
+									"disabled": true
+								},
+								{
+									"key": "clip",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								},
+								{
+									"key": "part",
+									"value": "3",
+									"type": "string",
+									"disabled": true
+								},
+								{
+									"key": "course_id",
+									"value": "2",
+									"type": "string",
+									"disabled": true
+								},
+								{
+									"key": "short_description",
+									"value": "در این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشود در این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشوددر این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشوددر این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشوددر این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشوددر این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشوددر این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشوددر این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشوددر این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشوددر این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشوددر این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشوددر این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشوددر این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشوددر این دوره با مفاهیم بنیادی بیت کوین و بلاکچین آشنا میشود",
+									"type": "string",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/lms/Pictures/minimal-dark-coding-wallpaper.png"
+								},
+								{
+									"key": "current_process_percentage",
+									"value": "60",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/videos/17",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"videos",
+								"17"
+							]
+						},
+						"description": "Only user with group ***superuser,*** ***student*** *and* ***teacher*** can edit a video\n\n**NOTE :** This is partial update means you can edit one of these fields or all of them at once"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjc2NDE0MjkxLCJpYXQiOjE2NDQ4NzgyOTF9.bJoiyubyrsRqtla88EuKqf_W07lBtpQHZ0P-x0NSwCg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "current_process_percentage",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/user/video/23",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"user",
+								"video",
+								"23"
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***student*** can edit a user video record\n\n**NOTE :** The id inside the URL parameter is the id of the video"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Video",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzUyNzkyOTEsImlhdCI6MTY0Mzc0MzI5MX0.Sto5jCk8dlhIKNin96BwgbTxA45uf7NJt7dv46_Oohs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{lms}}/course/user/video/6",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"user",
+								"video",
+								"6"
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***student*** can get a user video record\n\n**NOTE :** The id inside the URL parameter is the id of the video"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All User Videos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjc2NDE0MjkxLCJpYXQiOjE2NDQ4NzgyOTF9.bJoiyubyrsRqtla88EuKqf_W07lBtpQHZ0P-x0NSwCg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "course_id",
+									"value": "18",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/user/videos/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"user",
+								"videos",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***student*** can get a user video record\n\n**NOTE :** The id inside the URL parameter is the id of the video"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwNjg1NjMsImlhdCI6MTY0MzUzMjU2M30.Nd8wsKsZrYIEptvFAQ_p2wNdUavkuW3olHkbkWUFzho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{lms}}/course/videos/17",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"videos",
+								"17"
+							]
+						},
+						"description": "Only user with group ***superuser*** can delete a video"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Course Videos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ0Njg0MDEsImlhdCI6MTY0MjkzMjQwMX0.593u2j6puWQvVLyC7ryclbePkO2HNpaDX01YX4Wy4dU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "course_id",
+									"value": "18",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/videos/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"videos",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser***, ***teacher*** *and* ***student*** can get all videos related to a course"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Videos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwNjg1NjMsImlhdCI6MTY0MzUzMjU2M30.Nd8wsKsZrYIEptvFAQ_p2wNdUavkuW3olHkbkWUFzho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/course/videos/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"videos",
+								"all",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** can get all videos of all courses"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Prerequisites",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwNjg1NjMsImlhdCI6MTY0MzUzMjU2M30.Nd8wsKsZrYIEptvFAQ_p2wNdUavkuW3olHkbkWUFzho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "main_course",
+									"value": "3",
+									"type": "string"
+								},
+								{
+									"key": "prerequisite_courses",
+									"value": "2",
+									"type": "string"
+								},
+								{
+									"key": "prerequisite_courses",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/prerequisites/create/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"prerequisites",
+								"create",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***teacher*** can create prerequisites for a course\n\n**NOTE :** `prerequisite_courses` is an array of course IDs"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Prerequisites",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/course/prerequisites/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"prerequisites",
+								"all",
+								""
+							]
+						},
+						"description": "Get all prerequisites"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Prerequisite",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/course/prerequisites/akhe-in-course-ham-kirie",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"prerequisites",
+								"akhe-in-course-ham-kirie"
+							]
+						},
+						"description": "Get a prerequisite info"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Prerequisite",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwNjg1NjMsImlhdCI6MTY0MzUzMjU2M30.Nd8wsKsZrYIEptvFAQ_p2wNdUavkuW3olHkbkWUFzho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "main_course",
+									"value": "1",
+									"type": "string"
+								},
+								{
+									"key": "prerequisite_courses",
+									"value": "2",
+									"type": "string"
+								},
+								{
+									"key": "prerequisite_courses",
+									"value": "5",
+									"type": "string",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/prerequisites/آموزش-بلاکچین-توسط-تیم-بیتداد",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"prerequisites",
+								"آموزش-بلاکچین-توسط-تیم-بیتداد"
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***teacher*** can edit prerequisites for a course\n\n**NOTE :** `prerequisite_courses` is an array of course IDs\n\n**NOTE :** This is partial update means you can edit one of these fields or all of them at once"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzU1MTIyNjIsImlhdCI6MTY0Mzk3NjI2Mn0.-f68Q_1ju_tOhkLRHjnqlDsd7NrzBwUZS9UJcywVFIg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/course/user/5",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"user",
+								"5"
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***student*** can get a user course info\n\n**NOTE :** The id inside the url parameters is the id of a user course record inside database table"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All User Courses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjc2ODAwODAyLCJpYXQiOjE2NDUyNjQ4MDJ9.yBpteITjEdrQS89CnvT8fjyxNsBv0YUkhFxw_kRovXU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "10",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/user/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"user",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***student*** can get all user courses info for all users\n\n**NOTE :** This API returns all course info for a user if the `user_id` was passed through the body request\n\n**NOTE :** We might have multiple records for a single user in this table"
+					},
+					"response": []
+				},
+				{
+					"name": "Create User Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI0NzY5MDksImlhdCI6MTY0MDk0MDkwOX0.FC-eSpCNCmjqvxKpsLDrcCf8IkFUjMmJWivqOeO_vq8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "payment_info_id",
+									"value": "2",
+									"type": "string"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "string"
+								},
+								{
+									"key": "course_id",
+									"value": "2",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/user/create/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"user",
+								"create",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** can create a user course info\n\n**NOTE :** Once the user buy a course this API will be called to add a user course info"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ2NTM2OTEsImlhdCI6MTY0MzExNzY5MX0.S4FQi3szFZPoCCipj9vBAwr18HcDuC9xNS7KKYgTj8A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "passed_percentage",
+									"value": "0",
+									"type": "string",
+									"disabled": true
+								},
+								{
+									"key": "payment_info_id",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "quiz_score",
+									"value": "12",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/course/user/17",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"course",
+								"user",
+								"17"
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***student*** can edit a user course info\n\n**NOTE :** `passed_percentage` filed will be update on quiz result and course passing progress\n\n**NOTE :** This is partial update means you can edit one of these fields or all of them at once"
+					},
+					"response": []
+				}
+			],
+			"description": "# **Course APIs**\n\n**Models :**\n\n*   Course\n*   Video\n*   Prerequisite\n*   User_Course\n*   User_Video\n    \n\n**NOTE :** ***user_course*** model can have multiple records for a single user"
+		},
+		{
+			"name": "Quiz",
+			"item": [
+				{
+					"name": "Create Quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwODA4MDMsImlhdCI6MTY0MzU0NDgwM30.VAjGnuxBFi_fqz1_2g4tiQDWllBsDM7dJQRqK0BLBiQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"quiz 1\",\r\n    \"teacher_id\": 2,\r\n    \"course_slug\": \"course-1\",\r\n    \"expiration_time\": \"200\",\r\n    \"course_id\": 2,\r\n    \"content\": [\r\n                    {\r\n                        \"questionText\":\"zasxaxxzxzx\",\"answerOptions\":\r\n                            [\r\n                                {\"answerText\":\"شسیبثب\",\"isCorrect\":true},\r\n                                {\"answerText\":\"شسیسسلفبل\",\"isCorrect\":false},\r\n                                {\"answerText\":\"شسیسسبلذ\",\"isCorrect\":false},\r\n                                {\"answerText\":\"یبلذابفقف\",\"isCorrect\":false}\r\n                            ]\r\n                    },\r\n                    {\r\n                        \"questionText\":\"zxzxzx\",\"answerOptions\":\r\n                            [\r\n                                {\"answerText\":\"asd\",\"isCorrect\":false},\r\n                                {\"answerText\":\"asd\",\"isCorrect\":false},\r\n                                {\"answerText\":\"asd\",\"isCorrect\":false},\r\n                                {\"answerText\":\"asd\",\"isCorrect\":true}\r\n                            ]\r\n                    }\r\n                ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lms}}/quiz/create/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"quiz",
+								"create",
+								""
+							]
+						},
+						"description": "Only user with group ***teacher*** or ***superuser*** can add quiz\n\n**NOTE :** `content` of a quiz is a JSON"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzIzMTc4MjUsImlhdCI6MTY0MDc4MTgyNX0.CPsXC8Uz3qfs37kIH04VdTVcnH9FNkMTx4TFwH8Szvc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"course_id\": 4,\r\n    \"course_slug\": \"asdasd\",\r\n    \"title\": \"are dg\",\r\n    \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lms}}/quiz/update/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"quiz",
+								"update",
+								""
+							]
+						},
+						"description": "Only user with group ***teacher*** or ***superuser*** can edit quiz\n\n**NOTE :** `content` of a quiz is a JSON"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Quizzes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMCwiZXhwIjoxNjc2ODA3ODQyLCJpYXQiOjE2NDUyNzE4NDJ9.6JlVEqMko3J70geUY3Qk40xZw6TYOVoK4lA0--rHIXI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/quiz/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"quiz",
+								"all",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***student*** can get all quizzes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Teacher Quizzes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI0NzY5MDksImlhdCI6MTY0MDk0MDkwOX0.FC-eSpCNCmjqvxKpsLDrcCf8IkFUjMmJWivqOeO_vq8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "teacher_id",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/quiz/author/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"quiz",
+								"author",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***teacher*** can get all quizzes related to his/her courses"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwNjg1NjMsImlhdCI6MTY0MzUzMjU2M30.Nd8wsKsZrYIEptvFAQ_p2wNdUavkuW3olHkbkWUFzho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "quiz_id",
+									"value": "1\n",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/quiz/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"quiz",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser***, ***teacher*** *and* ***student*** can get a quizz"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwNjg1NjMsImlhdCI6MTY0MzUzMjU2M30.Nd8wsKsZrYIEptvFAQ_p2wNdUavkuW3olHkbkWUFzho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "quiz_id",
+									"value": "10",
+									"type": "string"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/quiz/user/get/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"quiz",
+								"user",
+								"get",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***student*** can get a user quizz info"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Quiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwNjg1NjMsImlhdCI6MTY0MzUzMjU2M30.Nd8wsKsZrYIEptvFAQ_p2wNdUavkuW3olHkbkWUFzho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_quiz_id\": 14,\r\n    \"quiz_id\": 10,\r\n    \"current_index_question\": 0,\r\n    \"shuffled_content\": [\r\n                    {\r\n                        \"questionText\":\"zasxaxxzxzx\",\"answerOptions\":\r\n                            [\r\n                                {\"answerText\":\"شسیبثب\",\"isCorrect\":true},\r\n                                {\"answerText\":\"شسیسسلفبل\",\"isCorrect\":false},\r\n                                {\"answerText\":\"شسیسسبلذ\",\"isCorrect\":false},\r\n                                {\"answerText\":\"یبلذابفقف\",\"isCorrect\":false}\r\n                            ]\r\n                    },\r\n                    {\r\n                        \"questionText\":\"zxzxzx\",\"answerOptions\":\r\n                            [\r\n                                {\"answerText\":\"asd\",\"isCorrect\":false},\r\n                                {\"answerText\":\"asd\",\"isCorrect\":false},\r\n                                {\"answerText\":\"asd\",\"isCorrect\":false},\r\n                                {\"answerText\":\"asd\",\"isCorrect\":true}\r\n                            ]\r\n                    }\r\n                ],\r\n    \"start_time\": \"2748924sdsf\",\r\n    \"remaining_time\": \"242894\",\r\n    \"finish_time\": \"827484\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lms}}/quiz/user/update/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"quiz",
+								"user",
+								"update",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***student*** can edit a user quizz info\n\n**NOTE :** The `id` field is the id of a user_quiz record inside the user_quiz table."
+					},
+					"response": []
+				}
+			],
+			"description": "# **Quiz APIs**\n\n**Models :**\n\n*   Quizz"
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI0NzY5MDksImlhdCI6MTY0MDk0MDkwOX0.FC-eSpCNCmjqvxKpsLDrcCf8IkFUjMmJWivqOeO_vq8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "course",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "price",
+									"value": "35000000",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/product/create/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"create",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** can add product\n\n**NOTE :** `price` field is based on Rials"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQzODEzMjAsImlhdCI6MTY0Mjg0NTMyMH0.XejyBSsdl76rfSmMjU0rYK1wVISMBz-ODJ2Ub2N1YiQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "price",
+									"value": "3000000",
+									"type": "default"
+								},
+								{
+									"key": "mean_score",
+									"value": "25",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/product/2",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"2"
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***student*** can edit product\n\n**NOTE :** `mean_score` field is in range 0 up to 50 and will be divided by 10 on the client side to be in range 0 up to 5\n\n**NOTE :** This is partial update means you can edit one of these fields or all of them at once\n\n**NOTE :** User with group ***student*** can only update the `mean_score` field\n\n**NOTE :** `mean_score` of a product is the average of the aggregation of all pervious values"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzY4OTE3MjAsImlhdCI6MTY0NTM1NTcyMH0.3SaMqheQ_ZIOKsnpLxY_eR2Ztx-h8gO_y4X24oMLyS0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{lms}}/product/1",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"1"
+							]
+						},
+						"description": "Get a product info"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/product/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"all",
+								""
+							]
+						},
+						"description": "Get all products of all published or drafted courses"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Discount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI0NzY5MDksImlhdCI6MTY0MDk0MDkwOX0.FC-eSpCNCmjqvxKpsLDrcCf8IkFUjMmJWivqOeO_vq8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "OffPercentage",
+									"value": "20",
+									"type": "default"
+								},
+								{
+									"key": "product",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "short_description",
+									"value": "an off for this product",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/product/discount/create/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"discount",
+								"create",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** can add discount for a product\n\n**NOTE :** We might have multiple discounts for a single product"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Discount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ1NTI4OTEsImlhdCI6MTY0MzAxNjg5MX0.mwwUf_Ja1zyrcVtoTpvuVZL-94KzVH6EOGaMrpMIZUM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "code",
+									"value": "672HYGZS",
+									"type": "default"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "short_description",
+									"value": "an 15 % off for this product",
+									"type": "default"
+								},
+								{
+									"key": "is_expired",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "OffPercentage",
+									"value": "14",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/product/discount/9",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"discount",
+								"9"
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***student*** can edit discount for a product\n\n**NOTE :** This is partial update means you can edit one of these fields or all of them at once\n\n**NOTE :** This API can be called by a student to update the `user_id` field, cause he/she can generate a discount code based on his/her points"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Discount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwNjg1NjMsImlhdCI6MTY0MzUzMjU2M30.Nd8wsKsZrYIEptvFAQ_p2wNdUavkuW3olHkbkWUFzho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/product/discount/1",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"discount",
+								"1"
+							]
+						},
+						"description": "Only user with group ***superuser*** can get a discount info for a product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Discounts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI0NzY5MDksImlhdCI6MTY0MDk0MDkwOX0.FC-eSpCNCmjqvxKpsLDrcCf8IkFUjMmJWivqOeO_vq8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "3",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/product/discount/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"discount",
+								"all",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** can get all discount of all products\n\n**NOTE :** This API returns all available, none expired and none owned by a user discounts for a product if the `product_id` was passed through the body request\n\n**NOTE :** We might have multiple records for a single product in this table"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Discount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI0NzY5MDksImlhdCI6MTY0MDk0MDkwOX0.FC-eSpCNCmjqvxKpsLDrcCf8IkFUjMmJWivqOeO_vq8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "7",
+									"type": "default"
+								},
+								{
+									"key": "code",
+									"value": "BBT3655",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/product/discount/check/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"discount",
+								"check",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***student*** can check the their discount code of a product"
+					},
+					"response": []
+				},
+				{
+					"name": "Expire Discount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI0NzY5MDksImlhdCI6MTY0MDk0MDkwOX0.FC-eSpCNCmjqvxKpsLDrcCf8IkFUjMmJWivqOeO_vq8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "discount_id",
+									"value": "3",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/product/discount/set-expire/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"discount",
+								"set-expire",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***student*** can expire a discount code of a product"
+					},
+					"response": []
+				},
+				{
+					"name": "Load More Products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "from",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "to",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/product/load-more/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"load-more",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Load Quiz",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/product/load-quiz/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"load-quiz",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Load Course By Level",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "level",
+									"value": "practical",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/product/load-course/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"load-course",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phrase",
+									"value": "block",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/product/search/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"product",
+								"search",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "# **Product APIs**\n\n**Model :**\n\n*   Product\n*   Discount\n    \n\n**NOTE :** ***Discount*** model can have multiple records for a single user"
+		},
+		{
+			"name": "Portal",
+			"item": [
+				{
+					"name": "Create Payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzI0NzY5MDksImlhdCI6MTY0MDk0MDkwOX0.FC-eSpCNCmjqvxKpsLDrcCf8IkFUjMmJWivqOeO_vq8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "price",
+									"value": "10000",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/portal/purchase/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"portal",
+								"purchase",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***student*** can add payment info for a product\n\n**NOTE :** `price` field is the pure price of a product including its discount\n\n**NOTE :** A product might have a 0 discount which its the `price` field will be the actual price of that product"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Successful Payments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQzODEzMjAsImlhdCI6MTY0Mjg0NTMyMH0.XejyBSsdl76rfSmMjU0rYK1wVISMBz-ODJ2Ub2N1YiQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "10",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/portal/payment/all/successful/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"portal",
+								"payment",
+								"all",
+								"successful",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***student*** can get all successful payments info for all users\n\n**NOTE :** This API returns all payments info for a user if the `user_id` was passed through the body request\n\n**NOTE :** We might have multiple records for a single user in this table"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Unsuccessful Payments Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQzODEzMjAsImlhdCI6MTY0Mjg0NTMyMH0.XejyBSsdl76rfSmMjU0rYK1wVISMBz-ODJ2Ub2N1YiQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "10",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/portal/payment/all/unsuccessful/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"portal",
+								"payment",
+								"all",
+								"unsuccessful",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***student*** can get all unsuccessful payments info for all users\n\n**NOTE :** This API returns all payments info for a user if the `user_id` was passed through the body request\n\n**NOTE :** We might have multiple records for a single user in this table"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Payments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQzODEzMjAsImlhdCI6MTY0Mjg0NTMyMH0.XejyBSsdl76rfSmMjU0rYK1wVISMBz-ODJ2Ub2N1YiQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "10",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/portal/payment/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"portal",
+								"payment",
+								"all",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** can get all payments info for all users\n\n**NOTE :** This API returns all payments info for a user if the `user_id` was passed through the body request\n\n**NOTE :** We might have multiple records for a single user in this table"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzUwNjg1NjMsImlhdCI6MTY0MzUzMjU2M30.Nd8wsKsZrYIEptvFAQ_p2wNdUavkuW3olHkbkWUFzho",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "payment_id",
+									"value": "6",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/portal/payment/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"portal",
+								"payment",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***student*** can get their payment info"
+					},
+					"response": []
+				}
+			],
+			"description": "# **Portal APIs**\n\n**Models :**\n\n*   PaymentInfo"
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Get Post",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/post/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"post",
+								""
+							]
+						},
+						"description": "Get a post info\n\n**NOTE :** `comments` field returned by the API is all available comments (status = True) for that course\n\n**NOTE :** `tickets` field returned by the API is all closed tickets (is_closed = True) for that course"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Published Posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/post/published/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"post",
+								"published",
+								""
+							]
+						},
+						"description": "Get all published posts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Posts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzc3NDg2NjcsImlhdCI6MTY0NjIxMjY2N30.YQvadd6SRDVbOo09o_L6r4kXXEFITsyqbVv6QQTYeek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/post/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"post",
+								"all",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can get all posts"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzc3NDg2NjcsImlhdCI6MTY0NjIxMjY2N30.YQvadd6SRDVbOo09o_L6r4kXXEFITsyqbVv6QQTYeek",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "first post",
+									"type": "default"
+								},
+								{
+									"key": "short_description",
+									"value": "this is a first post",
+									"type": "default"
+								},
+								{
+									"key": "content",
+									"value": "content of first post",
+									"type": "default"
+								},
+								{
+									"key": "tags",
+									"value": "2",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "tags",
+									"value": "1",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/post/create/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"post",
+								"create",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can create post"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Post",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Nzc3NTE4MTYsImlhdCI6MTY0NjIxNTgxNn0.bBqQ0e72GSSR3cG74lV_9DDW8kMkwtLBiIZ433aVOQQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tags\": \"blockchain\",\r\n    \"slug\": \"second-post\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lms}}/post/second-post/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"post",
+								"second-post",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can edit a post"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Post Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzMzNTE1ODEsImlhdCI6MTY0MTgxNTU4MX0.PIsc6JdJmpUbcN5rHmAy7VIxyni5LSv-efP2Fa-mpmo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "published",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/post/status/dev-test",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"post",
+								"status",
+								"dev-test"
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can edit a post status"
+					},
+					"response": []
+				},
+				{
+					"name": "Ckeditor Upload Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzQ3MjY0MDAsImlhdCI6MTY0MzE5MDQwMH0.pzYuhVBUKMsK9dyEI2kT12KneGp-OLr4JBJ2fq4MNNU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/lms/Pictures/download.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/post/ck-img/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"post",
+								"ck-img",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***admin*** can upload an image"
+					},
+					"response": []
+				},
+				{
+					"name": "Ckeditor Upload Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzM3ODY1MjMsImlhdCI6MTY0MjI1MDUyM30.aBCZO1XLa9ed6MaMXqXcFHQ8a4yV7ASmVfsS1bi0IPc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "video",
+									"type": "file",
+									"src": "/C:/Users/lms/Desktop/SampleVideo_1280x720_1mb.mp4"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/post/ck-vid/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"post",
+								"ck-vid",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***admin*** can upload a video"
+					},
+					"response": []
+				},
+				{
+					"name": "Load More Posts",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "from",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "to",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/post/load-more/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"post",
+								"load-more",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Posts By Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "categ",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/post/cat/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"post",
+								"cat",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Load More Posts By Searching Tags",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tag",
+									"value": "blockchain",
+									"type": "text"
+								},
+								{
+									"key": "from",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "to",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/post/search/tag/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"post",
+								"search",
+								"tag",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "# **Post APIs**\n\n**Models :**\n\n*   Post"
+		},
+		{
+			"name": "Proposal",
+			"item": [
+				{
+					"name": "Get Proposal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/proposal/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"proposal",
+								""
+							]
+						},
+						"description": "Get a proposal info\n\n**NOTE :** `comments` field returned by the API is all available comments (status = True) for that course\n\n**NOTE :** `tickets` field returned by the API is all closed tickets (is_closed = True) for that course"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Published Proposal",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/proposal/published/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"proposal",
+								"published",
+								""
+							]
+						},
+						"description": "Get all published proposals"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Proposal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ2NTA1MzcsImlhdCI6MTY0MzExNDUzN30.szUJvkbDgKNkcbaqwg1Sm2oRwyxm4W6jg13nxyi792w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/proposal/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"proposal",
+								"all",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can get all posts"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Proposal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzMzNTE1ODEsImlhdCI6MTY0MTgxNTU4MX0.PIsc6JdJmpUbcN5rHmAy7VIxyni5LSv-efP2Fa-mpmo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "sdfbsdfdsfb",
+									"type": "default"
+								},
+								{
+									"key": "short_description",
+									"value": "this is a first post",
+									"type": "default"
+								},
+								{
+									"key": "content",
+									"value": "sdfffffffffffffffffffffffffffffffffgkwerghbwebgiwbedovhgweoighoi2beiovhbidhwiobvswoidjbviowhgbwnbvsidhgviwhedivswdvwsdevniwksndvibw\nsodjivksjdbv\nswdf[bkp[aerfkb\naeqrf[w\nr]nhbqe3rihnbe3rnb",
+									"type": "default"
+								},
+								{
+									"key": "tags",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "tags",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/lms/Pictures/ILTQq.png"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/proposal/create/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"proposal",
+								"create",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can create post"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Proposal",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzMzNTE1ODEsImlhdCI6MTY0MTgxNTU4MX0.PIsc6JdJmpUbcN5rHmAy7VIxyni5LSv-efP2Fa-mpmo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "updated title for first post",
+									"type": "default"
+								},
+								{
+									"key": "short_description",
+									"value": "this is a first post",
+									"type": "default"
+								},
+								{
+									"key": "content",
+									"value": "awwwwwwwwsssss",
+									"type": "default"
+								},
+								{
+									"key": "tags",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "tags",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/lms/Pictures/ILTQq.png"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "slug",
+									"value": "first-post",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/proposal/first-post",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"proposal",
+								"first-post"
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can edit a post"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Proposal Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzMzNTE1ODEsImlhdCI6MTY0MTgxNTU4MX0.PIsc6JdJmpUbcN5rHmAy7VIxyni5LSv-efP2Fa-mpmo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "published",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/proposal/status/second-post",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"proposal",
+								"status",
+								"second-post"
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can edit a post status"
+					},
+					"response": []
+				},
+				{
+					"name": "Ckeditor Upload Image",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzQ3MjY0MDAsImlhdCI6MTY0MzE5MDQwMH0.pzYuhVBUKMsK9dyEI2kT12KneGp-OLr4JBJ2fq4MNNU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/lms/Pictures/download.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/proposal/ck-img/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"proposal",
+								"ck-img",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***admin*** can upload an image"
+					},
+					"response": []
+				},
+				{
+					"name": "Ckeditor Upload Video",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzM3ODY1MjMsImlhdCI6MTY0MjI1MDUyM30.aBCZO1XLa9ed6MaMXqXcFHQ8a4yV7ASmVfsS1bi0IPc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "video",
+									"type": "file",
+									"src": "/C:/Users/lms/Desktop/SampleVideo_1280x720_1mb.mp4"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/proposal/ck-vid/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"proposal",
+								"ck-vid",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** *and* ***admin*** can upload a video"
+					},
+					"response": []
+				}
+			],
+			"description": "# **Post APIs**\n\n**Models :**\n\n*   Proposal"
+		},
+		{
+			"name": "Certificate",
+			"item": [
+				{
+					"name": "Create Certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ1NzA2ODksImlhdCI6MTY0MzAzNDY4OX0.yXPuySnn93Z09M2Yr_usm0uujjBOesZ_CswTuJgfiMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_course_id",
+									"value": "4",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "this a certificate for this user passed this coursesssss",
+									"type": "default"
+								},
+								{
+									"key": "cert_type",
+									"value": "Course",
+									"type": "default"
+								},
+								{
+									"key": "content",
+									"type": "file",
+									"src": "/C:/Users/lms/Downloads/Arefi_proposal.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/certificate/create/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"certificate",
+								"create",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***student*** can create and issue a certificate"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ1NzA2ODksImlhdCI6MTY0MzAzNDY4OX0.yXPuySnn93Z09M2Yr_usm0uujjBOesZ_CswTuJgfiMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/certificate/11",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"certificate",
+								"11"
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***student*** can get a certificate"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Certificates",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ1NzA2ODksImlhdCI6MTY0MzAzNDY4OX0.yXPuySnn93Z09M2Yr_usm0uujjBOesZ_CswTuJgfiMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "10",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/certificate/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"certificate",
+								"all",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***student*** can get all certificates\n\n**NOTE :** This API returns all certificates info for a user if the `user_id` was passed through the body request"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Certificate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ1NzA2ODksImlhdCI6MTY0MzAzNDY4OX0.yXPuySnn93Z09M2Yr_usm0uujjBOesZ_CswTuJgfiMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_course_id",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "edited",
+									"type": "default"
+								},
+								{
+									"key": "cert_type",
+									"value": "Course",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/certificate/10",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"certificate",
+								"10"
+							]
+						},
+						"description": "Only user with group ***superuser*** can edit a certificate\n\n**NOTE :** It's commented on server side"
+					},
+					"response": []
+				}
+			],
+			"description": "# **Certificate APIs**\n\n**Models :**\n\n*   Certificate"
+		},
+		{
+			"name": "Ticket",
+			"item": [
+				{
+					"name": "Create Ticket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzMyNjM3MTcsImlhdCI6MTY0MTcyNzcxN30.JCriGM1W6KAr7EW9Y5BUYo56Su4WyFa0_BClnUrNSWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "content",
+									"value": "this is a test",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/ticket/create/?type=course&slug=another-kire-khar-from-python&user_id=2&parent_id=3",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"ticket",
+								"create",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "course"
+								},
+								{
+									"key": "slug",
+									"value": "another-kire-khar-from-python"
+								},
+								{
+									"key": "user_id",
+									"value": "2"
+								},
+								{
+									"key": "parent_id",
+									"value": "3"
+								}
+							]
+						},
+						"description": "Only user with group ***superuser, admin, teacher*** *and* ***student*** can get create a ticket\n\n**NOTE :** `parent_id` param can be passed to the URL and if so, it means we're creating a reply for some slug of some content type\n\n**NOTE :** A ticket is a FAQ and can be for either post or a course"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tickets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzMyNjM3MTcsImlhdCI6MTY0MTcyNzcxN30.JCriGM1W6KAr7EW9Y5BUYo56Su4WyFa0_BClnUrNSWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{lms}}/ticket/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"ticket",
+								"all",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can get all tickets"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Ticket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzMyNjM3MTcsImlhdCI6MTY0MTcyNzcxN30.JCriGM1W6KAr7EW9Y5BUYo56Su4WyFa0_BClnUrNSWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "content",
+									"value": "updated content",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/ticket/1",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"ticket",
+								"1"
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can edit a ticket"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Ticket Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzMyNjM3MTcsImlhdCI6MTY0MTcyNzcxN30.JCriGM1W6KAr7EW9Y5BUYo56Su4WyFa0_BClnUrNSWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "is_close",
+									"value": "false",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/ticket/status/1",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"ticket",
+								"status",
+								"1"
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can edit a ticket status"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Ticket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzMyNjM3MTcsImlhdCI6MTY0MTcyNzcxN30.JCriGM1W6KAr7EW9Y5BUYo56Su4WyFa0_BClnUrNSWw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/ticket/6",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"ticket",
+								"6"
+							]
+						},
+						"description": "Only user with group ***superuser, admin, teacher*** *and* ***student*** can get their ticket info"
+					},
+					"response": []
+				}
+			],
+			"description": "# **Ticket APIs**\n\n**Models :**\n\n*   Ticket\n    \n\n**NOTE :** Ticket is like **FAQ**"
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Create Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ2NTA1MzcsImlhdCI6MTY0MzExNDUzN30.szUJvkbDgKNkcbaqwg1Sm2oRwyxm4W6jg13nxyi792w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "content",
+									"value": "yyyyyyyyyyyyyyyyyy",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/comment/create/?type=post&slug=asdasdasdasdasasdasasdasdasdasdasasdasasdasdasdasd&user_id=1&parent_id=",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"comment",
+								"create",
+								""
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "post"
+								},
+								{
+									"key": "slug",
+									"value": "asdasdasdasdasasdasasdasdasdasdasasdasasdasdasdasd"
+								},
+								{
+									"key": "user_id",
+									"value": "1"
+								},
+								{
+									"key": "parent_id",
+									"value": ""
+								}
+							]
+						},
+						"description": "Only user with group ***superuser, admin, teacher*** *and* ***student*** can get create a comment\n\n**NOTE :** `parent_id` param can be passed to the URL and if so, it means we're creating a reply for some slug of some content type"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Comments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ2NjMwNjIsImlhdCI6MTY0MzEyNzA2Mn0.oP4DASyvmOsL4iLjTWy6hNIZKFM9fg9Tj0mYW2TyJWQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{lms}}/comment/all/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"comment",
+								"all",
+								""
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can get all comments"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzM1MjkzNTgsImlhdCI6MTY0MTk5MzM1OH0.qvl437g_SdZGt13VFV69gLbFJvF7m__ba_jANRmpaHQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "content",
+									"value": "updated content",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/comment/1",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"comment",
+								"1"
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can edit a comment"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Comment Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ2NjMwNjIsImlhdCI6MTY0MzEyNzA2Mn0.oP4DASyvmOsL4iLjTWy6hNIZKFM9fg9Tj0mYW2TyJWQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "true",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/comment/status/12",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"comment",
+								"status",
+								"12"
+							]
+						},
+						"description": "Only user with group ***superuser*** and ***admin*** can edit a comment status"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzQ2NTA1MzcsImlhdCI6MTY0MzExNDUzN30.szUJvkbDgKNkcbaqwg1Sm2oRwyxm4W6jg13nxyi792w",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/comment/9",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"comment",
+								"9"
+							]
+						},
+						"description": "Only user with group ***superuser, admin, teacher*** *and* ***student*** can get their comment info"
+					},
+					"response": []
+				}
+			],
+			"description": "# **Ticket APIs**\n\n**Models :**\n\n*   Comment"
+		},
+		{
+			"name": "BitQuiz",
+			"item": [
+				{
+					"name": "Update FunQuiz",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzY5NzI4MjYsImlhdCI6MTY0NTQzNjgyNn0.TbeLGZceozI7NgofvIR6ipIx8DWr0I4pIzPshJpFe9g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"time\": \"120\",\r\n    \"qna\": {\r\n        \"1\":{\r\n            \"2+2=?\": [2,3,4,1]\r\n        },\r\n        \"2\":{\r\n            \"3+5=?\": [7,8,9,10]\r\n        },\r\n        \"3\":{\r\n            \"4+9=?\": [13,23,41,21]\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{lms}}/funquiz/update/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"funquiz",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get FunQuiz",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/funquiz/get/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"funquiz",
+								"get",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User FunQuiz Result",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_email",
+									"value": "azinmalekiazin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "result",
+									"value": "80",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/funquiz/add/result/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"funquiz",
+								"add",
+								"result",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All FunQuiz Results",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NzY5NzI4MjYsImlhdCI6MTY0NTQzNjgyNn0.TbeLGZceozI7NgofvIR6ipIx8DWr0I4pIzPshJpFe9g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{lms}}/funquiz/results/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"funquiz",
+								"results",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User Email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_email",
+									"value": "abs@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/funquiz/add/user/email/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"funquiz",
+								"add",
+								"user",
+								"email",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Last User FunQuiz",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_email",
+									"value": "azinmaleki2016@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "user_funquiz_id",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{lms}}/funquiz/get/last/",
+							"host": [
+								"{{lms}}"
+							],
+							"path": [
+								"funquiz",
+								"get",
+								"last",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "lms",
+			"value": "https://api.lms.ir:8283",
+			"type": "string"
+		}
+	]
+}

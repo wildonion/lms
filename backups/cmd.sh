@@ -1,0 +1,1 @@
+pg_dump -U lms -W -F t lms > /home/lms/LMS-Server/backups/lms.sql
