@@ -209,6 +209,48 @@ class DiscountCreateView(generics.CreateAPIView):
 
 
 
+class DiscountCreateUserView(generics.CreateAPIView): # NOTE - this api will be used for creating discount in user panel for staking certificates
+    serializer_class = DiscountSerializer
+    queryset = Discount.objects.all()
+    
+    def post(self, request, *args, **kwargs):
+        response = Response()
+        if 'Authorization' in request.headers:
+            token = request.headers.get("Authorization")[7:]
+            payload = decode_token(token)
+            if payload == "decode error":
+                response.data = {'message': "Can't decode jwt"}
+                response.status_code = HTTP_406_NOT_ACCEPTABLE
+            elif payload == "expired":
+                response.data = {'message': "Token has been expired"}
+                response.status_code = HTTP_401_UNAUTHORIZED
+            else:
+                user = User.objects.filter(id=payload["user_id"])
+                if user.exists():
+                    token_msg = "Valid token"
+                    groups = ["superuser", "student"]
+                    user_group = user.first().groups.filter(
+                        reduce(lambda x, y: x | y, [Q(name=item) for item in groups]))
+                    if not user_group.exists():
+                        return Response({"message": f"Access denied for users with none {groups} group"},
+                                        status=HTTP_403_FORBIDDEN)
+                else:
+                    return Response({"message": "Wrong user"}, status=HTTP_403_FORBIDDEN)
+                # /////////////////// ACCESS GRANTED LOGICS ///////////////////
+                user_discount_api_key = str(settings.USER_DISCOUNT_API_KEY)
+                if request.data["user_discount_api_key"] != "" and request.data["user_discount_api_key"] == user_discount_api_key:
+                    created_discount = self.create(request, *args, **kwargs)
+                    response.data = {"message": token_msg, "data": created_discount.data}
+                    response.status_code = HTTP_201_CREATED
+                # /////////////////////////////////////////////////////////////
+        else:
+            response.data = {'message': "Unauthorized"}
+            response.status_code = HTTP_401_UNAUTHORIZED
+        return response
+    
+    
+
+
 
 class CheckDiscount(generics.ListAPIView):
     serializer_class = DiscountSerializer

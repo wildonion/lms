@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "99e769d8-3a0c-4cdb-8e21-d8fdb0149e35",
 		"name": "LMS",
-		"description": "# **LMS Server APIs**",
+		"description": "# **Bitdad LMS Server APIs**",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -142,12 +142,12 @@
 							"formdata": [
 								{
 									"key": "email_or_phone_number",
-									"value": "lmsex@gmail.com",
+									"value": "bitdadex@gmail.com",
 									"type": "string"
 								},
 								{
 									"key": "password",
-									"value": "lms@defiment17",
+									"value": "bitdad@defiment17",
 									"type": "string"
 								}
 							]
@@ -276,7 +276,7 @@
 								},
 								{
 									"key": "email",
-									"value": "lmsex@gmail.com",
+									"value": "bitdadex@gmail.com",
 									"type": "string"
 								},
 								{
@@ -286,7 +286,7 @@
 								},
 								{
 									"key": "username",
-									"value": "lms",
+									"value": "bitdad",
 									"type": "string"
 								}
 							]
@@ -378,7 +378,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/lms/Pictures/ILTQq.png"
+									"src": "/C:/Users/wildonion/Pictures/ILTQq.png"
 								}
 							]
 						},
@@ -651,7 +651,7 @@
 								},
 								{
 									"key": "short_description",
-									"value": "this is an awesome blockchian tutorial from lms",
+									"value": "this is an awesome blockchian tutorial from bitdad",
 									"type": "string"
 								},
 								{
@@ -662,7 +662,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/lms/Pictures/eye.jpg"
+									"src": "/C:/Users/wildonion/Pictures/eye.jpg"
 								},
 								{
 									"key": "tags",
@@ -920,7 +920,7 @@
 								{
 									"key": "clip",
 									"type": "file",
-									"src": "/C:/Users/lms/Desktop/[BTCLOD.COM] Day 22 - Courage  -  MOVE - A 30 Day Yoga Journey-360p.mp4"
+									"src": "/C:/Users/wildonion/Desktop/[BTCLOD.COM] Day 22 - Courage  -  MOVE - A 30 Day Yoga Journey-360p.mp4"
 								},
 								{
 									"key": "part",
@@ -940,7 +940,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/lms/Pictures/ILTQq.png"
+									"src": "/C:/Users/wildonion/Pictures/ILTQq.png"
 								}
 							]
 						},
@@ -1041,7 +1041,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/lms/Pictures/minimal-dark-coding-wallpaper.png"
+									"src": "/C:/Users/wildonion/Pictures/minimal-dark-coding-wallpaper.png"
 								},
 								{
 									"key": "current_process_percentage",
@@ -2879,7 +2879,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/lms/Pictures/download.jpg"
+									"src": "/C:/Users/wildonion/Pictures/download.jpg"
 								}
 							]
 						},
@@ -2919,7 +2919,7 @@
 								{
 									"key": "video",
 									"type": "file",
-									"src": "/C:/Users/lms/Desktop/SampleVideo_1280x720_1mb.mp4"
+									"src": "/C:/Users/wildonion/Desktop/SampleVideo_1280x720_1mb.mp4"
 								}
 							]
 						},
@@ -3165,7 +3165,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/lms/Pictures/ILTQq.png"
+									"src": "/C:/Users/wildonion/Pictures/ILTQq.png"
 								},
 								{
 									"key": "user_id",
@@ -3235,7 +3235,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/lms/Pictures/ILTQq.png"
+									"src": "/C:/Users/wildonion/Pictures/ILTQq.png"
 								},
 								{
 									"key": "user_id",
@@ -3324,7 +3324,7 @@
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/lms/Pictures/download.jpg"
+									"src": "/C:/Users/wildonion/Pictures/download.jpg"
 								}
 							]
 						},
@@ -3364,7 +3364,7 @@
 								{
 									"key": "video",
 									"type": "file",
-									"src": "/C:/Users/lms/Desktop/SampleVideo_1280x720_1mb.mp4"
+									"src": "/C:/Users/wildonion/Desktop/SampleVideo_1280x720_1mb.mp4"
 								}
 							]
 						},
@@ -3425,7 +3425,7 @@
 								{
 									"key": "content",
 									"type": "file",
-									"src": "/C:/Users/lms/Downloads/Arefi_proposal.pdf"
+									"src": "/C:/Users/wildonion/Downloads/Arefi_proposal.pdf"
 								}
 							]
 						},
@@ -4203,7 +4203,7 @@
 	"variable": [
 		{
 			"key": "lms",
-			"value": "https://api.lms.ir:8283",
+			"value": "https://api.bitdad.ir:8283",
 			"type": "string"
 		}
 	]

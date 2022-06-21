@@ -305,6 +305,7 @@ class QuizCourseInfoSerializer(serializers.ModelSerializer):
 class CertCourseInfoSerializer(serializers.ModelSerializer):
 
     user_course = SerializerMethodField()
+    price = SerializerMethodField()
     
     class Meta:
         model = Course
@@ -315,6 +316,7 @@ class CertCourseInfoSerializer(serializers.ModelSerializer):
             'short_description',
             'content',
             'image',
+            'price',
             'created_at',
             'slug',
             'user_course',
@@ -345,12 +347,20 @@ class CertCourseInfoSerializer(serializers.ModelSerializer):
             return user_courses.all().values()
         else:
             return []
+    
+    def get_price(self, obj):
+        product = Product.objects.filter(course_id=obj.id)
+        if product.exists():
+            return product.first().price # NOTE - we must only return the id of all discounts related to this course cause get discount api is restricted to only superuser group
+        else:
+            return []
 
 
 class ProdLoadMoreCourseInfoSerializer(serializers.ModelSerializer):
     
     prerequisite = SerializerMethodField()
     user_course = SerializerMethodField()
+    video_count = SerializerMethodField()
     
     class Meta:
         model = Course
@@ -365,7 +375,7 @@ class ProdLoadMoreCourseInfoSerializer(serializers.ModelSerializer):
             'user_course',
             'created_at',
             'slug',
-
+            'video_count',
             'visit_count',
             'status',
             'level',
@@ -381,7 +391,7 @@ class ProdLoadMoreCourseInfoSerializer(serializers.ModelSerializer):
             'teacher_id',
             'status',
             'visit_count',
-            'video_count',
+            # 'video_count',
             'comments',
 
         ]
@@ -402,6 +412,14 @@ class ProdLoadMoreCourseInfoSerializer(serializers.ModelSerializer):
         else:
             return []
     
+    def get_video_count(self, obj):
+        qs = Video.objects.filter(course_id=obj.id)
+        if qs.exists():
+            obj.video_count = qs.count()
+            obj.save()
+            return qs.count()
+        else:
+            return 0
         
 
 
@@ -468,6 +486,8 @@ class UserCourseInfoSerializer(serializers.ModelSerializer):
     course_duration = SerializerMethodField()
     product = SerializerMethodField()
     quizzes = SerializerMethodField()
+    teacher_first_name = SerializerMethodField()
+    teacher_last_name = SerializerMethodField()
 
     class Meta:
         model = Course
@@ -482,6 +502,8 @@ class UserCourseInfoSerializer(serializers.ModelSerializer):
             'slug',
             'quizzes',
             'teacher_id',
+            'teacher_first_name',
+            'teacher_last_name',
             'product',
             'video_count',
             'course_duration',
@@ -544,6 +566,17 @@ class UserCourseInfoSerializer(serializers.ModelSerializer):
             return product.first().id # NOTE - we must only return the id of all discounts related to this course cause get discount api is restricted to only superuser group
         else:
             return []
+        
+    def get_teacher_first_name(self, obj):
+        find_user = User.objects.filter(id=obj.teacher_id)
+        if find_user.exists():
+            return find_user.first().first_name
+    
+    
+    def get_teacher_last_name(self, obj):
+        find_user = User.objects.filter(id=obj.teacher_id)
+        if find_user.exists():
+            return find_user.first().last_name
 
 
 class CourseChangeStatusSerializer(serializers.ModelSerializer):
