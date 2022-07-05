@@ -1,1 +1,1 @@
-pg_dump -U bitdad -W -F t bitdad > /home/bitdad/LMS-Server/backups/bitdad.sql
+pg_dump -U lms -W -F t lms > /home/lms/LMS-Server/backups/lms.sql

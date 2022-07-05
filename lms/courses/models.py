@@ -57,12 +57,13 @@ class Video(models.Model):
     video_name = models.CharField(max_length=150, blank=True, null=True)
     slug = models.SlugField(null=False, db_index=True)
     created_at = models.DateTimeField(default=timezone.now())
-    clip = models.FileField(upload_to=upload_video_path, null=True, validators=[video_size_validator, video_content_type_validator])
+    # clip = models.FileField(upload_to=upload_video_path, null=True, validators=[video_size_validator, video_content_type_validator])
     course_id = models.IntegerField(default=0)
     image = models.ImageField(upload_to=upload_video_image_path, max_length=100, null=True, validators=[image_size_validator])
     part = models.IntegerField(blank=True, null=True)
     short_description = models.TextField()
-    
+    video_playlist_url = models.URLField(null=False, default='')
+    video_duration = models.IntegerField(default=0, null=False)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.video_name, allow_unicode=True)

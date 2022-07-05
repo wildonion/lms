@@ -1,10 +1,12 @@
 
 
+import json
 from multiprocessing import managers
 from rest_framework import serializers
 from rest_framework.fields import SerializerMethodField
 from comments.models import Comment
 from comments.serializers import CommentSerializer
+# from courses.views import VideoListView
 from users.models import GoogleMetaData, OTPModel, Point, Profile
 from quizzes.models import Quizz
 from products.models import Product, Discount
@@ -171,21 +173,33 @@ class CourseEditSerializer(serializers.ModelSerializer):
             return qs.count()
         else:
             return 0
-        
+
     def get_course_duration(self, obj):
-        qs = Video.objects.filter(course_id=obj.id)
-        if qs.exists():
-            courseDuration = 0
-            for item in qs:
-                video_path = item.clip.path
-                duration = subprocess.run([f"ffprobe -v error -select_streams v:0 -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 {video_path}"], 
-                                          shell=True,
-                                          stdout=subprocess.PIPE, 
-                                          stderr=subprocess.STDOUT)
-                courseDuration += float(duration.stdout)
-            return courseDuration
+        course_videos_durations = list(Video.objects.filter(course_id=obj.id).values('video_duration').all())
+        print(course_videos_durations)
+        course_duration = 0
+        v = len(course_videos_durations)
+        if course_videos_durations:
+            for i in range(0,v):
+                course_duration+=course_videos_durations[i]['video_duration']
+            return course_duration
         else:
             return 0
+
+    # def get_course_duration(self, obj):
+    #     qs = Video.objects.filter(course_id=obj.id)
+    #     if qs.exists():
+    #         courseDuration = 0
+    #         for item in qs:
+    #             video_path = item.clip.path
+    #             duration = subprocess.run([f"ffprobe -v error -select_streams v:0 -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 {video_path}"], 
+    #                                       shell=True,
+    #                                       stdout=subprocess.PIPE, 
+    #                                       stderr=subprocess.STDOUT)
+    #             courseDuration += float(duration.stdout)
+    #         return courseDuration
+    #     else:
+    #         return 0
 
 
     def get_comments(self, obj):
@@ -274,7 +288,14 @@ class QuizCourseInfoSerializer(serializers.ModelSerializer):
 
         ]
 
-        
+    def get_course_duration(self, obj):
+        course_videos = Course.objects.filter(id=obj.id)
+        if course_videos.exists():
+            serializer = CourseEditSerializer(instance=course_videos)
+            duration = serializer.data['course_duration']
+            return duration
+        else:
+            return 0
         
     def get_video_count(self, obj):
         qs = Video.objects.filter(course_id=obj.id)
@@ -285,20 +306,20 @@ class QuizCourseInfoSerializer(serializers.ModelSerializer):
         else:
             return 0
         
-    def get_course_duration(self, obj):
-        qs = Video.objects.filter(course_id=obj.id)
-        if qs.exists():
-            courseDuration = 0
-            for item in qs:
-                video_path = item.clip.path
-                duration = subprocess.run([f"ffprobe -v error -select_streams v:0 -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 {video_path}"], 
-                                          shell=True,
-                                          stdout=subprocess.PIPE, 
-                                          stderr=subprocess.STDOUT)
-                courseDuration += float(duration.stdout)
-            return courseDuration
-        else:
-            return 0
+    # def get_course_duration(self, obj):
+    #     qs = Video.objects.filter(course_id=obj.id)
+    #     if qs.exists():
+    #         courseDuration = 0
+    #         for item in qs:
+    #             video_path = item.clip.path
+    #             duration = subprocess.run([f"ffprobe -v error -select_streams v:0 -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 {video_path}"], 
+    #                                       shell=True,
+    #                                       stdout=subprocess.PIPE, 
+    #                                       stderr=subprocess.STDOUT)
+    #             courseDuration += float(duration.stdout)
+    #         return courseDuration
+    #     else:
+    #         return 0
         
         
 
@@ -545,18 +566,29 @@ class UserCourseInfoSerializer(serializers.ModelSerializer):
         else:
             return 0
         
+    # def get_course_duration(self, obj):
+    #     qs = Video.objects.filter(course_id=obj.id)
+    #     if qs.exists():
+    #         courseDuration = 0
+    #         for item in qs:
+    #             video_path = item.clip.path
+    #             duration = subprocess.run([f"ffprobe -v error -select_streams v:0 -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 {video_path}"], 
+    #                                       shell=True,
+    #                                       stdout=subprocess.PIPE, 
+    #                                       stderr=subprocess.STDOUT)
+    #             courseDuration += float(duration.stdout)
+    #         return courseDuration
+    #     else:
+    #         return 0
+
     def get_course_duration(self, obj):
-        qs = Video.objects.filter(course_id=obj.id)
-        if qs.exists():
-            courseDuration = 0
-            for item in qs:
-                video_path = item.clip.path
-                duration = subprocess.run([f"ffprobe -v error -select_streams v:0 -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 {video_path}"], 
-                                          shell=True,
-                                          stdout=subprocess.PIPE, 
-                                          stderr=subprocess.STDOUT)
-                courseDuration += float(duration.stdout)
-            return courseDuration
+        course_videos = Video.objects.filter(course_id=obj.id)
+        course_duration = 0
+        if course_videos.exists():
+            for item in course_videos:
+                serializer = VideoSerializer(instance=item)
+                course_duration+=serializer.data['video_duration']
+            return course_duration
         else:
             return 0
 
@@ -616,29 +648,21 @@ class VideoUploadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Video
         fields = '__all__'
-        read_only_fields = ['video_format', 'video_size', 'video_duration', 'created_at', 'slug', ]
+        read_only_fields = ['video_format', 'video_size',  'created_at', 'slug']
 
 
 
 class VideoSerializer(serializers.ModelSerializer):
-    video_duration = SerializerMethodField()
+    # video_duration = SerializerMethodField()
     course_info = SerializerMethodField()
 
     class Meta:
         model = Video
         fields = '__all__'
-        read_only_fields = ['video_format', 'video_size', 'video_duration', 'image', 'created_at', 'slug', ]
+        read_only_fields = ['video_format', 'video_size', 'video_duration', 'image', 'created_at', 'slug']
 
-    def get_video_duration(self, obj):
-        video_path = obj.clip.path
-        duration = subprocess.run([f"ffprobe -v error -select_streams v:0 -show_entries stream=duration -of default=noprint_wrappers=1:nokey=1 {video_path}"], 
-                                    shell=True,
-                                    stdout=subprocess.PIPE, 
-                                    stderr=subprocess.STDOUT)
-        return float(duration.stdout)
-         
-    
     def get_course_info(self, obj):
+        print(obj)
         find_course = Course.objects.filter(id=obj.course_id)
         if find_course.exists():
             serializer = CourseEditSerializer(instance=find_course.first())

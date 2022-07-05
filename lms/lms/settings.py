@@ -49,7 +49,7 @@ USER_DISCOUNT_API_KEY = env('USER_DISCOUNT_API_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['bitdad.ir', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['lms.ir', 'localhost', '127.0.0.1']
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = ()

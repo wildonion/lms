@@ -12,4 +12,4 @@ class CourseAdmin(admin.ModelAdmin):
 
 @admin.register(Video)
 class VideoAdmin(admin.ModelAdmin):
-    list_display = ['id', 'video_name', 'course_id', 'part', 'clip', 'created_at', ]
+    list_display = ['id', 'video_name', 'course_id', 'part', 'created_at', ]

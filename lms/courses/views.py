@@ -15,8 +15,8 @@ from rest_framework.status import HTTP_201_CREATED, HTTP_302_FOUND, HTTP_403_FOR
 from rest_framework.views import APIView
 import os
 from users.utils import decode_token
-from .models import User_Video, Video, Prerequisite, User_Course
-from .serializers import Course, CourseViewSerializer, CourseEditSerializer, CourseCreateSerializer, \
+from .models import User_Video, Video, Prerequisite, User_Course, Course
+from .serializers import CourseViewSerializer, CourseEditSerializer, CourseCreateSerializer, \
     CourseChangeStatusSerializer, VideoUploadSerializer, VideoSerializer, PrerequisiteSerializer, User_CourseSerializer, PrerequisiteFetchSerializer, User_VideoSerializer
 
 
@@ -343,27 +343,29 @@ class UploadVideoView(APIView):
                     if serializer.is_valid():
                         name = serializer.data.get('video_name')
                         course_id = serializer.data.get('course_id')
-                        clip = request.FILES['clip']
                         image = request.FILES['image']
                         part = serializer.data.get('part')
+                        video_duration = serializer.data.get('video_duration')
                         short_description = serializer.data.get('short_description')
+                        video_playlist_url = serializer.data.get('video_playlist_url')
                         videos_for_this_course = Video.objects.filter(course_id=course_id)
                         for video in videos_for_this_course:
                             if part == video.part:
-                                return Response({"message": {"tokne": token_msg, "error": "this part already exists"},
+                                return Response({"message": {"token": token_msg, "error": "this part already exists"},
                                                 "data": serializer.errors}, status=status.HTTP_406_NOT_ACCEPTABLE)
                     else:
                         return Response({"message": token_msg, "data": serializer.errors}, status=status.HTTP_409_CONFLICT)
                     video = Video()
-                    video.clip = clip
+                    video.video_playlist_url = video_playlist_url
                     video.image = image
                     video.video_name = name
                     video.part = part
                     video.short_description = short_description
                     video.course_id = course_id
+                    video.video_duration = video_duration
                     video.save()
-                    data = {"id": video.id, "video_name": name, "course_id": course_id, "clip": video.clip.url, "image": video.image.url,
-                            "part": part, "short_description": short_description}
+                    data = {"id": video.id, "video_name": name, "course_id": course_id, "image": video.image.url,
+                            "part": part, "short_description": short_description, 'video_duration': video_duration, 'video_playlist_url': video_playlist_url}
                     return Response({"message": token_msg, "data": data}, status=status.HTTP_201_CREATED)
                 # /////////////////////////////////////////////////////////////
 
@@ -404,9 +406,8 @@ class VideoListView(ListAPIView):
                 # /////////////////// ACCESS GRANTED LOGICS ///////////////////
                 videos = self.list(request, *args, **kwargs)
                 for v in videos.data:
-                    if v["clip"] != None:
-                        v["clip"] = v["clip"][21:]
-                        v["image"] = v["image"][21:]
+                        # v["clip"] = v["clip"][21:]
+                    v["image"] = v["image"][21:]
                 response.data = {"message": token_msg, "data": videos.data}
                 response.status_code = HTTP_200_OK
                 # /////////////////////////////////////////////////////////////
@@ -468,9 +469,9 @@ class CourseVideoListView(ListAPIView):
                 if user_group.first().name == "superuser" or user_can_see_related_videos or teacher_can_see_related_videos:
                     videos = self.list(request, *args, **kwargs)
                     for v in videos.data:
-                        if v["clip"] != None:
-                            v["clip"] = v["clip"][21:]
-                            v["image"] = v["image"][21:]
+                        # if v["clip"] != None:
+                            # v["clip"] = v["clip"][21:]
+                        v["image"] = v["image"][21:]
                     response.data = {"message": token_msg, "data": videos.data}
                     response.status_code = HTTP_200_OK
                 # ////////////////////////////////////////////////////////////
@@ -541,7 +542,7 @@ class VideoDetailView(generics.RetrieveUpdateDestroyAPIView):
                             return Response({"message": "lock for this user"}, status=HTTP_403_FORBIDDEN)
                 if user_group.first().name == "superuser" or user_can_see_related_videos or teacher_can_see_related_videos:
                     video_detail = self.retrieve(request, *args, **kwargs)
-                    video_detail.data["clip"] = video_detail.data["clip"][21:]
+                    # video_detail.data["clip"] = video_detail.data["clip"][21:]
                     video_detail.data["image"] = video_detail.data["image"][21:]
                     response.data = {"message": token_msg, "data": video_detail.data}
                     response.status_code = HTTP_200_OK
@@ -602,7 +603,6 @@ class VideoDetailView(generics.RetrieveUpdateDestroyAPIView):
                             return Response({"message": "lock for this user"}, status=HTTP_403_FORBIDDEN)
                 if user_group.first().name == "superuser" or user_can_see_related_videos or teacher_can_see_related_videos:
                     updated_video = self.partial_update(request, *args, **kwargs)
-                    updated_video.data["clip"] = updated_video.data["clip"][21:] if updated_video.data["clip"] != None else ''
                     updated_video.data["image"] = updated_video.data["image"][21:] if updated_video.data["image"] != None else ''
                     response.data = {"message": token_msg, "data": updated_video.data}
                     response.status_code = HTTP_200_OK
@@ -640,10 +640,10 @@ class VideoDetailView(generics.RetrieveUpdateDestroyAPIView):
                 lms_path = str(Path(__file__).parent.parent)
                 find_video = Video.objects.filter(id=self.kwargs.get("pk"))
                 if find_video.exists():
-                    video_path = lms_path + find_video.first().clip.url
+                    # video_path = lms_path + find_video.first().clip.url
                     image_path = lms_path + find_video.first().image.url 
-                    if os.path.exists(video_path):
-                        os.remove(video_path)
+                    # if os.path.exists(video_path):
+                    #     os.remove(video_path)
                     if os.path.exists(image_path):
                         os.remove(image_path)
                 deleted_video = self.destroy(request, *args, **kwargs)
