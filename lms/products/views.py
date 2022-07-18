@@ -534,13 +534,17 @@ def search(request):
     find_published_courses_products = Product.objects.filter(reduce(lambda x, y: x | y, [Q(course_id=item['id']) for item in published_courses])).all().values('id')
     if find_published_courses_products.exists():
         find_phrase_in_course = Course.objects.filter(reduce(lambda x, y: x | y, [Q(title__icontains=phrase) | Q(short_description__icontains=phrase) | Q(content__icontains=phrase) for item in find_published_courses_products])).distinct().all().values('id')
-        res = Product.objects.filter(reduce(lambda x, y: x | y, [Q(course_id=item['id']) for item in find_phrase_in_course]))
-        if res.exists():
-            serializer = ProductSerializer(instance= res, many=True)
-            response.data = {"message": "Fetched successfully", "data": serializer.data}
-            response.status_code = HTTP_200_OK
+        if find_phrase_in_course.exists():
+            res = Product.objects.filter(reduce(lambda x, y: x | y, [Q(course_id=item['id']) for item in find_phrase_in_course]))
+            if res.exists():
+                serializer = ProductSerializer(instance= res, many=True)
+                response.data = {"message": "Fetched successfully", "data": serializer.data}
+                response.status_code = HTTP_200_OK
+            else:
+                response.data = {"message": "No product", "data": []}
+                response.status_code = HTTP_404_NOT_FOUND
         else:
-            response.data = {"message": "No product", "data": []}
+            response.data = {"message": "Phrase Not Found In Courses", "data": []}
             response.status_code = HTTP_404_NOT_FOUND
     else:
         response.data = {"message": "No product", "data": []}

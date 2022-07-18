@@ -176,11 +176,10 @@ class CourseEditSerializer(serializers.ModelSerializer):
 
     def get_course_duration(self, obj):
         course_videos_durations = list(Video.objects.filter(course_id=obj.id).values('video_duration').all())
-        print(course_videos_durations)
         course_duration = 0
         v = len(course_videos_durations)
         if course_videos_durations:
-            for i in range(0,v):
+            for i in range(v):
                 course_duration+=course_videos_durations[i]['video_duration']
             return course_duration
         else:
@@ -289,11 +288,13 @@ class QuizCourseInfoSerializer(serializers.ModelSerializer):
         ]
 
     def get_course_duration(self, obj):
-        course_videos = Course.objects.filter(id=obj.id)
-        if course_videos.exists():
-            serializer = CourseEditSerializer(instance=course_videos)
-            duration = serializer.data['course_duration']
-            return duration
+        videos_of_course = list(Video.objects.filter(course_id=obj.id).values('video_duration').all())
+        course_d = 0
+        v = len(videos_of_course)
+        if videos_of_course:
+            for i in range(v):
+                course_d+=videos_of_course[i]['video_duration']
+                return course_d
         else:
             return 0
         

@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "99e769d8-3a0c-4cdb-8e21-d8fdb0149e35",
 		"name": "LMS",
-		"description": "# **lms LMS Server APIs**",
+		"description": "# **Bitdad LMS Server APIs**",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -142,12 +142,12 @@
 							"formdata": [
 								{
 									"key": "email_or_phone_number",
-									"value": "lmsex@gmail.com",
+									"value": "bitdadex@gmail.com",
 									"type": "string"
 								},
 								{
 									"key": "password",
-									"value": "lms@defiment17",
+									"value": "bitdad@defiment17",
 									"type": "string"
 								}
 							]
@@ -276,7 +276,7 @@
 								},
 								{
 									"key": "email",
-									"value": "lmsex@gmail.com",
+									"value": "bitdadex@gmail.com",
 									"type": "string"
 								},
 								{
@@ -286,7 +286,7 @@
 								},
 								{
 									"key": "username",
-									"value": "lms",
+									"value": "bitdad",
 									"type": "string"
 								}
 							]
@@ -651,7 +651,7 @@
 								},
 								{
 									"key": "short_description",
-									"value": "this is an awesome blockchian tutorial from lms",
+									"value": "this is an awesome blockchian tutorial from bitdad",
 									"type": "string"
 								},
 								{
@@ -4203,7 +4203,7 @@
 	"variable": [
 		{
 			"key": "lms",
-			"value": "https://api.lms.ir:8283",
+			"value": "https://api.bitdad.ir:8283",
 			"type": "string"
 		}
 	]
